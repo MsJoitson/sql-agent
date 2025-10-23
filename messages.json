@@ -1,0 +1,112 @@
+[
+    {
+        "parts": [
+            {
+                "type": "text",
+                "text": "How much sale we have done?"
+            }
+        ],
+        "id": "8bvGMyFxvnmHa1zQ",
+        "role": "user"
+    },
+    {
+        "id": "C36NAnknNRDdNOOJ",
+        "role": "assistant",
+        "parts": [
+            {
+                "type": "step-start"
+            },
+            {
+                "type": "tool-schema",
+                "toolCallId": "812phdcjv",
+                "state": "output-available",
+                "input": {
+                    "query": "SELECT SUM(sale_amount) as total_sale FROM sales;"
+                },
+                "output": "CREATE TABLE products (\n\tid integer PRIMARY KEY AUTOINCREMENT NOT NULL,\n\tname text NOT NULL,\n\tcategory text NOT NULL,\n\tprice text NOT NULL,\n\tcreatedAt text DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE sales (\n\tid integer PRIMARY KEY AUTOINCREMENT NOT NULL,\n\tproductId integer NOT NULL,\n\tquantity integer NOT NULL,\n\ttotal_amount real NOT NULL,\n\tsale_date text DEFAULT CURRENT_TIMESTAMP,\n\tcustomer_name text NOT NULL,\n\tregion text NOT NULL,\n\tFOREIGN KEY (productId) REFERENCES products(id) ON UPDATE no action ON DELETE no action\n)"
+            }
+        ]
+    },
+    {
+        "parts": [
+            {
+                "type": "text",
+                "text": "hi"
+            }
+        ],
+        "id": "0p2tZZ94DQE5WeAX",
+        "role": "user"
+    },
+    {
+        "id": "UQlJbqO4s4VmagcF",
+        "role": "assistant",
+        "parts": [
+            {
+                "type": "step-start"
+            },
+            {
+                "type": "tool-schema",
+                "toolCallId": "zfsfhapq5",
+                "state": "output-available",
+                "input": {
+                    "query": "SELECT SUM(total_amount) as total_sale FROM sales;"
+                },
+                "output": "CREATE TABLE products (\n\tid integer PRIMARY KEY AUTOINCREMENT NOT NULL,\n\tname text NOT NULL,\n\tcategory text NOT NULL,\n\tprice text NOT NULL,\n\tcreatedAt text DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE sales (\n\tid integer PRIMARY KEY AUTOINCREMENT NOT NULL,\n\tproductId integer NOT NULL,\n\tquantity integer NOT NULL,\n\ttotal_amount real NOT NULL,\n\tsale_date text DEFAULT CURRENT_TIMESTAMP,\n\tcustomer_name text NOT NULL,\n\tregion text NOT NULL,\n\tFOREIGN KEY (productId) REFERENCES products(id) ON UPDATE no action ON DELETE no action\n)"
+            },
+            {
+                "type": "step-start"
+            },
+            {
+                "type": "text",
+                "text": "It seems like you want to know the total sale amount. I've made a query to get that information for you. The query is: \n\nSELECT SUM(total_amount) as total_sale FROM sales; \n\nThis will return the total sale amount.",
+                "state": "done"
+            }
+        ]
+    },
+    {
+        "parts": [
+            {
+                "type": "text",
+                "text": "How many products are there"
+            }
+        ],
+        "id": "JAJ2Mav0K7PH5Eeo",
+        "role": "user"
+    },
+    {
+        "id": "ml4S6WqtlYYMbXxG",
+        "role": "assistant",
+        "parts": [
+            {
+                "type": "step-start"
+            },
+            {
+                "type": "tool-schema",
+                "toolCallId": "tcv80fbh3",
+                "state": "output-available",
+                "input": {
+                    "query": "SELECT COUNT(id) as total_products FROM products;"
+                },
+                "output": "CREATE TABLE products (\n\tid integer PRIMARY KEY AUTOINCREMENT NOT NULL,\n\tname text NOT NULL,\n\tcategory text NOT NULL,\n\tprice text NOT NULL,\n\tcreatedAt text DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE TABLE sales (\n\tid integer PRIMARY KEY AUTOINCREMENT NOT NULL,\n\tproductId integer NOT NULL,\n\tquantity integer NOT NULL,\n\ttotal_amount real NOT NULL,\n\tsale_date text DEFAULT CURRENT_TIMESTAMP,\n\tcustomer_name text NOT NULL,\n\tregion text NOT NULL,\n\tFOREIGN KEY (productId) REFERENCES products(id) ON UPDATE no action ON DELETE no action\n)"
+            },
+            {
+                "type": "step-start"
+            },
+            {
+                "type": "text",
+                "text": "To find out how many products there are, I've made a query that counts the number of rows in the \"products\" table. The query is:\n\nSELECT COUNT(id) as total_products FROM products;\n\nThis will return the total number of products.",
+                "state": "done"
+            }
+        ]
+    },
+    {
+        "parts": [
+            {
+                "type": "text",
+                "text": "hi"
+            }
+        ],
+        "id": "75oht8Bv96lIZmT4",
+        "role": "user"
+    }
+] 
